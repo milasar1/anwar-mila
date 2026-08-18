@@ -12,6 +12,7 @@
 
 <title>Anwar & Mila</title>
 
+
 <!-- =====================================================
      WHATSAPP / SOCIAL MEDIA PREVIEW
 ===================================================== -->
@@ -100,6 +101,7 @@
   name="twitter:image"
   content="https://milasar1.github.io/anwar-mila/Preview.jpg"
 >
+
 
 <link
   rel="preconnect"
@@ -549,8 +551,43 @@ body.locked {
   line-height:
     .95;
 
+  /*
+     GLOW MENGALIR KIRI -> KANAN
+  */
+
+  background:
+    linear-gradient(
+      110deg,
+      var(--cream) 0%,
+      var(--cream) 35%,
+      var(--gold-light) 43%,
+      #ffffff 50%,
+      var(--gold-light) 57%,
+      var(--cream) 65%,
+      var(--cream) 100%
+    );
+
+  background-size:
+    250% 100%;
+
+  -webkit-background-clip:
+    text;
+
+  background-clip:
+    text;
+
+  -webkit-text-fill-color:
+    transparent;
+
+  animation:
+    flowingGlow 4.5s linear infinite;
+
 }
 
+
+/* =====================================================
+   COVER AMPERSAND
+===================================================== */
 
 .cover-name span {
 
@@ -560,14 +597,66 @@ body.locked {
   font-size:
     42px;
 
-  color:
-    var(--gold);
-
   margin:
     10px 0;
 
+  background:
+    linear-gradient(
+      110deg,
+      var(--gold) 0%,
+      var(--gold) 35%,
+      var(--gold-light) 43%,
+      #ffffff 50%,
+      var(--gold-light) 57%,
+      var(--gold) 65%,
+      var(--gold) 100%
+    );
+
+  background-size:
+    250% 100%;
+
+  -webkit-background-clip:
+    text;
+
+  background-clip:
+    text;
+
+  -webkit-text-fill-color:
+    transparent;
+
+  animation:
+    flowingGlow 4.5s linear infinite;
+
 }
 
+
+/* =====================================================
+   ANIMASI GLOW
+   CAHAYA BERGERAK DARI KIRI KE KANAN
+===================================================== */
+
+@keyframes flowingGlow {
+
+  0% {
+
+    background-position:
+      150% 0;
+
+  }
+
+  100% {
+
+    background-position:
+      -150% 0;
+
+  }
+
+}
+
+
+/* =====================================================
+   COVER DATE
+===================================================== */
 
 .cover-date {
 
@@ -634,8 +723,6 @@ body.locked {
 
 }
 
-
-/* SHAPE SUDUT */
 
 .guest-box::before,
 .guest-box::after {
@@ -1316,6 +1403,11 @@ section {
 }
 
 
+/* =====================================================
+   NAMA KEDUA MEMPELAI
+   GLOW MENGALIR KIRI -> KANAN
+===================================================== */
+
 .couple-name {
 
   font-family:
@@ -1335,8 +1427,36 @@ section {
   line-height:
     1.05;
 
-  color:
-    var(--gold-light);
+  /*
+     GRADIENT CAHAYA
+  */
+
+  background:
+    linear-gradient(
+      110deg,
+      var(--gold-light) 0%,
+      var(--gold-light) 35%,
+      #ffeeb0 43%,
+      #ffffff 50%,
+      #ffeeb0 57%,
+      var(--gold-light) 65%,
+      var(--gold-light) 100%
+    );
+
+  background-size:
+    250% 100%;
+
+  -webkit-background-clip:
+    text;
+
+  background-clip:
+    text;
+
+  -webkit-text-fill-color:
+    transparent;
+
+  animation:
+    flowingGlow 4.5s linear infinite;
 
   text-shadow:
     0 2px 12px
@@ -3003,6 +3123,24 @@ textarea {
 
 }
 
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .cover-name,
+  .cover-name span,
+  .couple-name {
+
+    animation:
+      none;
+
+  }
+
+}
+
 </style>
 
 </head>
@@ -3378,7 +3516,7 @@ textarea {
 
 
     <div class="event-date-label">
-      DISELENGGARAKAN PADA:
+      DISELENGGARAKAN PADA
     </div>
 
 
@@ -3754,24 +3892,17 @@ textarea {
    GITHUB PAGES + GOOGLE APPS SCRIPT API
 ===================================================== */
 
-/*
-  GANTI URL DI BAWAH DENGAN URL WEB APP APPS SCRIPT ANDA.
-
-  Contoh:
-  https://script.google.com/macros/s/AKfycbxxxxxxxxxxxxxxxx/exec
-*/
 const API_URL =
   'https://script.google.com/macros/s/AKfycbxVr5JPUfJotIZuRm9lEmH_CS-0uH1s82hYIetkOHBV4OSQUYpEF5GoZEyCJj9gIn8s/exec';
 
 
 let CONFIG = {};
+
 let musicPlaying = false;
 
 
 /* =====================================================
    API JSONP
-   Dipakai agar GitHub Pages dapat berkomunikasi
-   dengan Google Apps Script tanpa masalah CORS.
 ===================================================== */
 
 function apiRequest(action, params, callback) {
@@ -3780,39 +3911,74 @@ function apiRequest(action, params, callback) {
     !API_URL ||
     API_URL.indexOf('GANTI_DENGAN') !== -1
   ) {
-    console.error('API_URL belum diisi.');
+
+    console.error(
+      'API_URL belum diisi.'
+    );
+
     callback({
       success: false,
-      message: 'API_URL belum diatur.'
+      message:
+        'API_URL belum diatur.'
     });
+
     return;
+
   }
+
 
   const callbackName =
     'apiCallback_' +
     Date.now() +
     '_' +
-    Math.floor(Math.random() * 100000);
+    Math.floor(
+      Math.random() * 100000
+    );
+
 
   const query =
     new URLSearchParams();
 
-  query.set('action', action);
-  query.set('callback', callbackName);
+
+  query.set(
+    'action',
+    action
+  );
+
+
+  query.set(
+    'callback',
+    callbackName
+  );
+
 
   if (params) {
-    Object.keys(params).forEach(function(key) {
-      query.set(
-        key,
-        params[key] == null ? '' : params[key]
+
+    Object.keys(params)
+      .forEach(
+        function(key) {
+
+          query.set(
+            key,
+            params[key] == null
+              ? ''
+              : params[key]
+          );
+
+        }
       );
-    });
+
   }
 
+
   const script =
-    document.createElement('script');
+    document.createElement(
+      'script'
+    );
+
 
   let finished = false;
+
 
   window[callbackName] =
     function(response) {
@@ -3820,34 +3986,60 @@ function apiRequest(action, params, callback) {
       finished = true;
 
       try {
-        callback(response);
-      } finally {
-        delete window[callbackName];
+
+        callback(
+          response
+        );
+
+      }
+
+      finally {
+
+        delete window[
+          callbackName
+        ];
+
         script.remove();
+
       }
 
     };
+
 
   script.onerror =
     function() {
 
       if (finished) return;
 
-      delete window[callbackName];
+      delete window[
+        callbackName
+      ];
+
       script.remove();
 
       callback({
-        success: false,
+
+        success:
+          false,
+
         message:
           'Tidak dapat terhubung ke server undangan.'
+
       });
 
     };
 
-  script.src =
-    API_URL + '?' + query.toString();
 
-  document.body.appendChild(script);
+  script.src =
+    API_URL +
+    '?' +
+    query.toString();
+
+
+  document.body.appendChild(
+    script
+  );
+
 }
 
 
@@ -3862,23 +4054,30 @@ function loadGuestName() {
       window.location.search
     );
 
+
   let guest =
-    params.get('to') || '';
+    params.get('to') ||
+    '';
+
 
   guest =
     String(guest).trim();
+
 
   const guestName =
     document.getElementById(
       'guestName'
     );
 
+
   if (!guestName) {
     return;
   }
 
+
   guestName.innerText =
-    guest || 'Tamu Undangan';
+    guest ||
+    'Tamu Undangan';
 
 }
 
@@ -3893,6 +4092,7 @@ window.addEventListener(
 
     loadGuestName();
 
+
     apiRequest(
       'config',
       {},
@@ -3902,16 +4102,31 @@ window.addEventListener(
           !response ||
           response.success === false
         ) {
-          console.error(response);
+
+          console.error(
+            response
+          );
+
+          createPetals();
+          loadWishes();
+          initReveal();
+
           return;
+
         }
 
+
         CONFIG =
-          response.data || {};
+          response.data ||
+          {};
+
 
         applyConfig();
+
         createPetals();
+
         loadWishes();
+
         initReveal();
 
       }
@@ -3928,10 +4143,14 @@ window.addEventListener(
 function applyConfig() {
 
   const background =
-    CONFIG.Background_URL || '';
+    CONFIG.Background_URL ||
+    '';
+
 
   const music =
-    CONFIG.Musik_URL || '';
+    CONFIG.Musik_URL ||
+    '';
+
 
   const maps =
     CONFIG.Maps_URL ||
@@ -3960,7 +4179,8 @@ function applyConfig() {
       .getElementById(
         'weddingMusic'
       )
-      .src = music;
+      .src =
+      music;
 
   }
 
@@ -3971,7 +4191,8 @@ function applyConfig() {
     .getElementById(
       'mapsButton'
     )
-    .href = maps;
+    .href =
+    maps;
 
 
   /* GOOGLE MAP */
@@ -3980,6 +4201,7 @@ function applyConfig() {
     encodeURIComponent(
       'SDN 1 Cibeuti, Jl. Raya Cibeuti, Kawalu, Tasikmalaya'
     );
+
 
   document
     .getElementById(
@@ -4000,34 +4222,52 @@ function applyConfig() {
 function openInvitation() {
 
   document
-    .getElementById('cover')
+    .getElementById(
+      'cover'
+    )
     .classList
-    .add('hidden');
+    .add(
+      'hidden'
+    );
+
 
   document.body
     .classList
-    .remove('locked');
+    .remove(
+      'locked'
+    );
+
 
   setTimeout(
     function() {
 
       document
-        .getElementById('content')
+        .getElementById(
+          'content'
+        )
         .classList
-        .add('show');
+        .add(
+          'show'
+        );
 
     },
     300
   );
 
+
   document
-    .getElementById('musicButton')
-    .style.display = 'flex';
+    .getElementById(
+      'musicButton'
+    )
+    .style.display =
+    'flex';
+
 
   const music =
     document.getElementById(
       'weddingMusic'
     );
+
 
   if (music.src) {
 
@@ -4035,12 +4275,18 @@ function openInvitation() {
       .then(
         function() {
 
-          musicPlaying = true;
+          musicPlaying =
+            true;
+
 
           document
-            .getElementById('musicButton')
+            .getElementById(
+              'musicButton'
+            )
             .classList
-            .add('playing');
+            .add(
+              'playing'
+            );
 
         }
       )
@@ -4071,10 +4317,12 @@ function toggleMusic() {
       'weddingMusic'
     );
 
+
   const button =
     document.getElementById(
       'musicButton'
     );
+
 
   if (!music.src) {
 
@@ -4086,21 +4334,34 @@ function toggleMusic() {
 
   }
 
+
   if (music.paused) {
 
     music.play();
 
-    musicPlaying = true;
+    musicPlaying =
+      true;
 
-    button.classList.add('playing');
+    button
+      .classList
+      .add(
+        'playing'
+      );
 
-  } else {
+  }
+
+  else {
 
     music.pause();
 
-    musicPlaying = false;
+    musicPlaying =
+      false;
 
-    button.classList.remove('playing');
+    button
+      .classList
+      .remove(
+        'playing'
+      );
 
   }
 
@@ -4122,8 +4383,11 @@ function updateCountdown() {
   const now =
     new Date().getTime();
 
+
   const distance =
-    weddingDate - now;
+    weddingDate -
+    now;
+
 
   if (distance <= 0) {
 
@@ -4132,12 +4396,16 @@ function updateCountdown() {
       'hours',
       'minutes',
       'seconds'
-    ].forEach(
+    ]
+    .forEach(
       function(id) {
 
         document
-          .getElementById(id)
-          .innerText = '0';
+          .getElementById(
+            id
+          )
+          .innerText =
+          '0';
 
       }
     );
@@ -4146,59 +4414,104 @@ function updateCountdown() {
 
   }
 
+
   const days =
     Math.floor(
       distance /
-      (1000 * 60 * 60 * 24)
+      (
+        1000 *
+        60 *
+        60 *
+        24
+      )
     );
+
 
   const hours =
     Math.floor(
       (
         distance %
-        (1000 * 60 * 60 * 24)
+        (
+          1000 *
+          60 *
+          60 *
+          24
+        )
       ) /
-      (1000 * 60 * 60)
+      (
+        1000 *
+        60 *
+        60
+      )
     );
+
 
   const minutes =
     Math.floor(
       (
         distance %
-        (1000 * 60 * 60)
+        (
+          1000 *
+          60 *
+          60
+        )
       ) /
-      (1000 * 60)
+      (
+        1000 *
+        60
+      )
     );
+
 
   const seconds =
     Math.floor(
       (
         distance %
-        (1000 * 60)
+        (
+          1000 *
+          60
+        )
       ) /
       1000
     );
 
-  document
-    .getElementById('days')
-    .innerText = days;
 
   document
-    .getElementById('hours')
-    .innerText = hours;
+    .getElementById(
+      'days'
+    )
+    .innerText =
+    days;
+
 
   document
-    .getElementById('minutes')
-    .innerText = minutes;
+    .getElementById(
+      'hours'
+    )
+    .innerText =
+    hours;
+
 
   document
-    .getElementById('seconds')
-    .innerText = seconds;
+    .getElementById(
+      'minutes'
+    )
+    .innerText =
+    minutes;
+
+
+  document
+    .getElementById(
+      'seconds'
+    )
+    .innerText =
+    seconds;
 
 }
 
 
 updateCountdown();
+
 
 setInterval(
   updateCountdown,
@@ -4217,46 +4530,75 @@ function createPetal() {
       'div'
     );
 
+
   petal.className =
     'petal';
 
+
   const size =
-    Math.random() * 8 + 7;
+    Math.random() *
+    8 +
+    7;
+
 
   petal.style.width =
-    size + 'px';
+    size +
+    'px';
+
 
   petal.style.height =
-    size * .65 + 'px';
+    size *
+    .65 +
+    'px';
+
 
   petal.style.left =
-    Math.random() * 100 + 'vw';
+    Math.random() *
+    100 +
+    'vw';
+
 
   petal.style.setProperty(
     '--x',
     (
-      Math.random() * 250 - 125
-    ) + 'px'
+      Math.random() *
+      250 -
+      125
+    ) +
+    'px'
   );
 
+
   const duration =
-    Math.random() * 7 + 7;
+    Math.random() *
+    7 +
+    7;
+
 
   petal.style.animationDuration =
-    duration + 's';
+    duration +
+    's';
+
 
   petal.style.opacity =
-    Math.random() * .5 + .35;
+    Math.random() *
+    .5 +
+    .35;
+
 
   document.body.appendChild(
     petal
   );
 
+
   setTimeout(
     function() {
+
       petal.remove();
+
     },
-    duration * 1000
+    duration *
+    1000
   );
 
 }
@@ -4272,10 +4614,12 @@ function createPetals() {
 
     setTimeout(
       createPetal,
-      i * 350
+      i *
+      350
     );
 
   }
+
 
   setInterval(
     createPetal,
@@ -4289,7 +4633,8 @@ function createPetals() {
    SCROLL REVEAL
 ===================================================== */
 
-let lastScrollY = 0;
+let lastScrollY =
+  0;
 
 
 function initReveal() {
@@ -4298,6 +4643,7 @@ function initReveal() {
     document.querySelectorAll(
       '.reveal'
     );
+
 
   const observer =
     new IntersectionObserver(
@@ -4312,15 +4658,23 @@ function initReveal() {
 
               entry.target
                 .classList
-                .add('visible');
+                .add(
+                  'visible'
+                );
+
 
               entry.target
                 .classList
-                .remove('scroll-up');
+                .remove(
+                  'scroll-up'
+                );
+
 
               entry.target
                 .classList
-                .remove('scroll-down');
+                .remove(
+                  'scroll-down'
+                );
 
             }
 
@@ -4329,17 +4683,25 @@ function initReveal() {
 
       },
       {
-        threshold: 0.10,
+        threshold:
+          0.10,
+
         rootMargin:
           '0px 0px -50px 0px'
       }
     );
 
+
   elements.forEach(
     function(element) {
-      observer.observe(element);
+
+      observer.observe(
+        element
+      );
+
     }
   );
+
 
   window.addEventListener(
     'scroll',
@@ -4348,48 +4710,71 @@ function initReveal() {
       const currentScrollY =
         window.scrollY;
 
+
       const direction =
-        currentScrollY > lastScrollY
+        currentScrollY >
+        lastScrollY
           ? 'down'
           : 'up';
+
 
       elements.forEach(
         function(element) {
 
           const rect =
-            element.getBoundingClientRect();
+            element
+              .getBoundingClientRect();
+
 
           if (
-            rect.bottom < -30 ||
+            rect.bottom <
+              -30 ||
             rect.top >
-              window.innerHeight + 30
+              window.innerHeight +
+              30
           ) {
 
             element
               .classList
-              .remove('visible');
+              .remove(
+                'visible'
+              );
+
 
             if (
-              direction === 'down'
+              direction ===
+              'down'
             ) {
 
               element
                 .classList
-                .add('scroll-down');
+                .add(
+                  'scroll-down'
+                );
+
 
               element
                 .classList
-                .remove('scroll-up');
+                .remove(
+                  'scroll-up'
+                );
 
-            } else {
+            }
+
+            else {
 
               element
                 .classList
-                .add('scroll-up');
+                .add(
+                  'scroll-up'
+                );
+
 
               element
                 .classList
-                .remove('scroll-down');
+                .remove(
+                  'scroll-down'
+                );
 
             }
 
@@ -4398,6 +4783,7 @@ function initReveal() {
         }
       );
 
+
       lastScrollY =
         currentScrollY <= 0
           ? 0
@@ -4405,7 +4791,8 @@ function initReveal() {
 
     },
     {
-      passive: true
+      passive:
+        true
     }
   );
 
@@ -4420,15 +4807,18 @@ function submitRSVP(event) {
 
   event.preventDefault();
 
+
   const button =
     document.getElementById(
       'submitButton'
     );
 
+
   const status =
     document.getElementById(
       'status'
     );
+
 
   const data = {
 
@@ -4437,15 +4827,18 @@ function submitRSVP(event) {
         'nama'
       ).value,
 
+
     kehadiran:
       document.getElementById(
         'kehadiran'
       ).value,
 
+
     jumlah:
       document.getElementById(
         'jumlah'
       ).value,
+
 
     ucapan:
       document.getElementById(
@@ -4454,9 +4847,18 @@ function submitRSVP(event) {
 
   };
 
-  button.disabled = true;
-  button.innerText = 'MENGIRIM...';
-  status.innerText = 'Mohon tunggu...';
+
+  button.disabled =
+    true;
+
+
+  button.innerText =
+    'MENGIRIM...';
+
+
+  status.innerText =
+    'Mohon tunggu...';
+
 
   apiRequest(
     'saveRSVP',
@@ -4471,8 +4873,10 @@ function submitRSVP(event) {
         status.style.color =
           '#d8b56a';
 
+
         status.innerText =
           response.message;
+
 
         document
           .getElementById(
@@ -4480,16 +4884,24 @@ function submitRSVP(event) {
           )
           .reset();
 
-        button.disabled = false;
+
+        button.disabled =
+          false;
+
+
         button.innerText =
           'KIRIM KONFIRMASI';
 
+
         loadWishes();
 
-      } else {
+      }
+
+      else {
 
         status.style.color =
           '#e6a5a5';
+
 
         status.innerText =
           (
@@ -4498,7 +4910,11 @@ function submitRSVP(event) {
           ) ||
           'Terjadi kesalahan. Silakan coba kembali.';
 
-        button.disabled = false;
+
+        button.disabled =
+          false;
+
+
         button.innerText =
           'KIRIM KONFIRMASI';
 
@@ -4526,12 +4942,14 @@ function loadWishes() {
           'wishList'
         );
 
+
       if (
         !response ||
         response.success === false
       ) {
 
         list.innerHTML = `
+
           <div
             style="
               text-align:center;
@@ -4541,20 +4959,30 @@ function loadWishes() {
               line-height:1.6;
             "
           >
+
             Gagal memuat ucapan.
+
           </div>
+
         `;
+
 
         return;
 
       }
 
-      const data =
-        response.data || [];
 
-      if (data.length === 0) {
+      const data =
+        response.data ||
+        [];
+
+
+      if (
+        data.length === 0
+      ) {
 
         list.innerHTML = `
+
           <div
             style="
               text-align:center;
@@ -4564,58 +4992,81 @@ function loadWishes() {
               line-height:1.6;
             "
           >
+
             Belum ada ucapan.
+
             <br>
+
             Jadilah yang pertama
             memberikan doa terbaik
             untuk Anwar & Mila.
+
           </div>
+
         `;
+
 
         return;
 
       }
 
-      let html = '';
+
+      let html =
+        '';
+
 
       data.forEach(
         function(item) {
 
           const nama =
             escapeHtml(
-              item.nama || ''
+              item.nama ||
+              ''
             );
+
 
           const status =
             escapeHtml(
-              item.kehadiran || ''
+              item.kehadiran ||
+              ''
             );
+
 
           const ucapan =
             escapeHtml(
-              item.ucapan || ''
+              item.ucapan ||
+              ''
             );
 
+
           html += `
+
             <div class="wish">
+
               <div class="wish-name">
                 ${nama}
               </div>
+
 
               <div class="wish-status">
                 ${status}
               </div>
 
+
               <div class="wish-text">
                 ${ucapan}
               </div>
+
             </div>
+
           `;
 
         }
       );
 
-      list.innerHTML = html;
+
+      list.innerHTML =
+        html;
 
     }
   );
@@ -4634,8 +5085,10 @@ function escapeHtml(text) {
       'div'
     );
 
+
   div.textContent =
     text;
+
 
   return div.innerHTML;
 
