@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="id">
 
@@ -110,7 +111,6 @@
   href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
   rel="stylesheet"
 >
-
 
 <style>
 
@@ -549,6 +549,22 @@ body.locked {
   line-height:
     .95;
 
+  /* GLOW */
+
+  text-shadow:
+
+    0 0 5px
+    rgba(242,213,139,.35),
+
+    0 0 12px
+    rgba(216,181,106,.30),
+
+    0 0 25px
+    rgba(216,181,106,.18);
+
+  animation:
+    coverGlow 3.2s ease-in-out infinite;
+
 }
 
 
@@ -565,6 +581,67 @@ body.locked {
 
   margin:
     10px 0;
+
+  text-shadow:
+
+    0 0 5px
+    rgba(242,213,139,.40),
+
+    0 0 14px
+    rgba(216,181,106,.30);
+
+}
+
+
+@keyframes coverGlow {
+
+  0% {
+
+    text-shadow:
+
+      0 0 4px
+      rgba(242,213,139,.25),
+
+      0 0 10px
+      rgba(216,181,106,.20),
+
+      0 0 18px
+      rgba(216,181,106,.10);
+
+  }
+
+  50% {
+
+    text-shadow:
+
+      0 0 7px
+      rgba(255,239,190,.85),
+
+      0 0 18px
+      rgba(242,213,139,.65),
+
+      0 0 35px
+      rgba(216,181,106,.40),
+
+      0 0 55px
+      rgba(216,181,106,.18);
+
+  }
+
+  100% {
+
+    text-shadow:
+
+      0 0 4px
+      rgba(242,213,139,.25),
+
+      0 0 10px
+      rgba(216,181,106,.20),
+
+      0 0 18px
+      rgba(216,181,106,.10);
+
+  }
 
 }
 
@@ -634,8 +711,6 @@ body.locked {
 
 }
 
-
-/* SHAPE SUDUT */
 
 .guest-box::before,
 .guest-box::after {
@@ -1339,8 +1414,68 @@ section {
     var(--gold-light);
 
   text-shadow:
-    0 2px 12px
-    rgba(0,0,0,.35);
+
+    0 0 4px
+    rgba(242,213,139,.25),
+
+    0 0 10px
+    rgba(216,181,106,.20);
+
+  animation:
+    coupleGlow 3.8s ease-in-out infinite;
+
+}
+
+
+@keyframes coupleGlow {
+
+  0% {
+
+    text-shadow:
+
+      0 0 4px
+      rgba(242,213,139,.20),
+
+      0 0 10px
+      rgba(216,181,106,.15),
+
+      0 0 18px
+      rgba(216,181,106,.08);
+
+  }
+
+  50% {
+
+    text-shadow:
+
+      0 0 7px
+      rgba(255,239,190,.80),
+
+      0 0 16px
+      rgba(242,213,139,.60),
+
+      0 0 30px
+      rgba(216,181,106,.35),
+
+      0 0 45px
+      rgba(216,181,106,.15);
+
+  }
+
+  100% {
+
+    text-shadow:
+
+      0 0 4px
+      rgba(242,213,139,.20),
+
+      0 0 10px
+      rgba(216,181,106,.15),
+
+      0 0 18px
+      rgba(216,181,106,.08);
+
+  }
 
 }
 
@@ -1563,10 +1698,6 @@ section {
 
 }
 
-
-/* =====================================================
-   EVENT DATE
-===================================================== */
 
 .event-date {
 
@@ -2590,56 +2721,6 @@ textarea {
 
   opacity:
     .35;
-/* =====================================================
-   ANIMASI GLOW ELEGAN
-===================================================== */
-
-@keyframes elegantGlow {
-
-  0% {
-    text-shadow:
-      0 0 4px rgba(242,213,139,.20),
-      0 0 10px rgba(216,181,106,.15),
-      0 0 18px rgba(216,181,106,.08);
-  }
-
-  50% {
-    text-shadow:
-      0 0 7px rgba(242,213,139,.55),
-      0 0 18px rgba(216,181,106,.40),
-      0 0 32px rgba(216,181,106,.22);
-  }
-
-  100% {
-    text-shadow:
-      0 0 4px rgba(242,213,139,.20),
-      0 0 10px rgba(216,181,106,.15),
-      0 0 18px rgba(216,181,106,.08);
-  }
-
-}
-
-
-/* =====================================================
-   GLOW NAMA DI COVER
-===================================================== */
-
-.cover-name {
-
-  animation:
-    elegantGlow 3.5s ease-in-out infinite;
-
-}
-
-
-/* =====================================================
-   GLOW NAMA KEDUA MEMPELAI
-===================================================== */
-
-.couple-name {
-
-  animation:
-    elegantGlow 4s ease-in-out infinite;
 
 }
 
@@ -2772,8 +2853,6 @@ textarea {
   }
 
 
-  /* EVENT */
-
   .event-wrapper {
 
     padding:
@@ -2872,8 +2951,6 @@ textarea {
   }
 
 
-  /* LOCATION */
-
   .location-block {
 
     padding:
@@ -2921,8 +2998,6 @@ textarea {
 
   }
 
-
-  /* GUEST */
 
   .guest-box {
 
@@ -3061,10 +3136,6 @@ textarea {
 <body class="locked">
 
 
-<!-- =====================================================
-     BACKGROUND
-===================================================== -->
-
 <div id="mainBackground"></div>
 
 <div id="ambient"></div>
@@ -3077,7 +3148,6 @@ textarea {
 <div id="cover">
 
   <div class="cover-card">
-
 
     <div class="cover-small">
       THE WEDDING OF
@@ -3101,10 +3171,6 @@ textarea {
       06 · 09 · 2026
     </div>
 
-
-    <!-- =================================================
-         NAMA TAMU
-    ================================================== -->
 
     <div class="guest-box">
 
@@ -3139,7 +3205,6 @@ textarea {
     >
       BUKA UNDANGAN
     </button>
-
 
   </div>
 
@@ -3176,10 +3241,6 @@ textarea {
 <div class="main-card">
 
 
-<!-- =====================================================
-     WEDDING
-===================================================== -->
-
 <div class="wedding-block reveal">
 
   <div class="ornament">
@@ -3210,12 +3271,7 @@ textarea {
 <div class="inner-divider"></div>
 
 
-<!-- =====================================================
-     AYAT
-===================================================== -->
-
 <div class="verse-block reveal">
-
 
   <div class="bismillah">
     بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
@@ -3254,12 +3310,7 @@ textarea {
 <div class="inner-divider"></div>
 
 
-<!-- =====================================================
-     PEMBUKAAN
-===================================================== -->
-
 <div class="intro reveal">
-
 
   <div class="greeting">
 
@@ -3277,12 +3328,7 @@ textarea {
 </div>
 
 
-<!-- =====================================================
-     MEMPELAI
-===================================================== -->
-
 <div class="couple-area reveal">
-
 
   <div class="couple-name">
     Asep Saeful Anwar
@@ -3328,12 +3374,7 @@ textarea {
 <div class="inner-divider"></div>
 
 
-<!-- =====================================================
-     COUNTDOWN
-===================================================== -->
-
 <div class="reveal">
-
 
   <div class="countdown-title">
     MENGHITUNG HARI
@@ -3341,7 +3382,6 @@ textarea {
 
 
   <div class="countdown">
-
 
     <div class="count-box">
 
@@ -3406,18 +3446,12 @@ textarea {
 
     </div>
 
-
   </div>
 
 </div>
 
 
-<!-- =====================================================
-     EVENT
-===================================================== -->
-
 <div class="event-wrapper reveal">
-
 
   <div class="ornament">
     ✦ ❈ ✦
@@ -3425,7 +3459,6 @@ textarea {
 
 
   <div class="event-date">
-
 
     <div class="event-date-label">
       DISELENGGARAKAN PADA:
@@ -3451,12 +3484,10 @@ textarea {
       2026
     </div>
 
-
   </div>
 
 
   <div class="event-row">
-
 
     <div class="event-box">
 
@@ -3485,18 +3516,12 @@ textarea {
 
     </div>
 
-
   </div>
 
 </div>
 
 
-<!-- =====================================================
-     LOKASI
-===================================================== -->
-
 <div class="location-block reveal">
-
 
   <div class="ornament">
     ✦ ❈ ✦
@@ -3541,19 +3566,13 @@ textarea {
     BUKA GOOGLE MAPS
   </a>
 
-
 </div>
 
 
 <div class="inner-divider"></div>
 
 
-<!-- =====================================================
-     PENUTUP
-===================================================== -->
-
 <div class="closing reveal">
-
 
   Merupakan suatu kehormatan dan kebahagiaan
   bagi kami apabila Bapak/Ibu/Saudara/i
@@ -3568,19 +3587,13 @@ textarea {
 
   </div>
 
-
 </div>
 
 
 <div class="inner-divider"></div>
 
 
-<!-- =====================================================
-     RSVP
-===================================================== -->
-
 <div class="reveal">
-
 
   <div class="rsvp-title">
     KONFIRMASI KEHADIRAN
@@ -3591,7 +3604,6 @@ textarea {
     id="rsvpForm"
     onsubmit="submitRSVP(event)"
   >
-
 
     <div class="form-group">
 
@@ -3654,21 +3666,17 @@ textarea {
           1 Orang
         </option>
 
-
         <option value="2">
           2 Orang
         </option>
-
 
         <option value="3">
           3 Orang
         </option>
 
-
         <option value="4">
           4 Orang
         </option>
-
 
         <option value="5">
           5 Orang
@@ -3708,18 +3716,12 @@ textarea {
       class="status"
     ></div>
 
-
   </form>
 
 </div>
 
 
-<!-- =====================================================
-     UCAPAN
-===================================================== -->
-
 <div class="wishes reveal">
-
 
   <div class="rsvp-title">
     UCAPAN & DOA
@@ -3730,19 +3732,13 @@ textarea {
     Memuat ucapan...
   </div>
 
-
 </div>
 
 
 <div class="final-divider"></div>
 
 
-<!-- =====================================================
-     FINAL
-===================================================== -->
-
 <div class="reveal">
-
 
   <div class="ornament">
     ✦ ❈ ✦
@@ -3787,7 +3783,6 @@ textarea {
 
   </div>
 
-
 </div>
 
 
@@ -3804,24 +3799,17 @@ textarea {
    GITHUB PAGES + GOOGLE APPS SCRIPT API
 ===================================================== */
 
-/*
-  GANTI URL DI BAWAH DENGAN URL WEB APP APPS SCRIPT ANDA.
-
-  Contoh:
-  https://script.google.com/macros/s/AKfycbxxxxxxxxxxxxxxxx/exec
-*/
 const API_URL =
   'https://script.google.com/macros/s/AKfycbxVr5JPUfJotIZuRm9lEmH_CS-0uH1s82hYIetkOHBV4OSQUYpEF5GoZEyCJj9gIn8s/exec';
 
 
 let CONFIG = {};
+
 let musicPlaying = false;
 
 
 /* =====================================================
    API JSONP
-   Dipakai agar GitHub Pages dapat berkomunikasi
-   dengan Google Apps Script tanpa masalah CORS.
 ===================================================== */
 
 function apiRequest(action, params, callback) {
@@ -3830,39 +3818,73 @@ function apiRequest(action, params, callback) {
     !API_URL ||
     API_URL.indexOf('GANTI_DENGAN') !== -1
   ) {
-    console.error('API_URL belum diisi.');
+
+    console.error(
+      'API_URL belum diisi.'
+    );
+
     callback({
       success: false,
-      message: 'API_URL belum diatur.'
+      message:
+        'API_URL belum diatur.'
     });
+
     return;
+
   }
+
 
   const callbackName =
     'apiCallback_' +
     Date.now() +
     '_' +
-    Math.floor(Math.random() * 100000);
+    Math.floor(
+      Math.random() * 100000
+    );
+
 
   const query =
     new URLSearchParams();
 
-  query.set('action', action);
-  query.set('callback', callbackName);
+
+  query.set(
+    'action',
+    action
+  );
+
+
+  query.set(
+    'callback',
+    callbackName
+  );
+
 
   if (params) {
-    Object.keys(params).forEach(function(key) {
-      query.set(
-        key,
-        params[key] == null ? '' : params[key]
-      );
-    });
+
+    Object.keys(params).forEach(
+      function(key) {
+
+        query.set(
+          key,
+          params[key] == null
+            ? ''
+            : params[key]
+        );
+
+      }
+    );
+
   }
 
+
   const script =
-    document.createElement('script');
+    document.createElement(
+      'script'
+    );
+
 
   let finished = false;
+
 
   window[callbackName] =
     function(response) {
@@ -3870,13 +3892,21 @@ function apiRequest(action, params, callback) {
       finished = true;
 
       try {
+
         callback(response);
-      } finally {
+
+      }
+
+      finally {
+
         delete window[callbackName];
+
         script.remove();
+
       }
 
     };
+
 
   script.onerror =
     function() {
@@ -3884,25 +3914,37 @@ function apiRequest(action, params, callback) {
       if (finished) return;
 
       delete window[callbackName];
+
       script.remove();
 
       callback({
-        success: false,
+
+        success:
+          false,
+
         message:
           'Tidak dapat terhubung ke server undangan.'
+
       });
 
     };
 
-  script.src =
-    API_URL + '?' + query.toString();
 
-  document.body.appendChild(script);
+  script.src =
+    API_URL +
+    '?' +
+    query.toString();
+
+
+  document.body.appendChild(
+    script
+  );
+
 }
 
 
 /* =====================================================
-   NAMA TAMU DARI URL
+   NAMA TAMU
 ===================================================== */
 
 function loadGuestName() {
@@ -3912,23 +3954,27 @@ function loadGuestName() {
       window.location.search
     );
 
+
   let guest =
     params.get('to') || '';
 
+
   guest =
     String(guest).trim();
+
 
   const guestName =
     document.getElementById(
       'guestName'
     );
 
-  if (!guestName) {
-    return;
-  }
+
+  if (!guestName) return;
+
 
   guestName.innerText =
-    guest || 'Tamu Undangan';
+    guest ||
+    'Tamu Undangan';
 
 }
 
@@ -3943,6 +3989,7 @@ window.addEventListener(
 
     loadGuestName();
 
+
     apiRequest(
       'config',
       {},
@@ -3952,16 +3999,30 @@ window.addEventListener(
           !response ||
           response.success === false
         ) {
+
           console.error(response);
+
+          createPetals();
+
+          loadWishes();
+
+          initReveal();
+
           return;
+
         }
+
 
         CONFIG =
           response.data || {};
 
+
         applyConfig();
+
         createPetals();
+
         loadWishes();
+
         initReveal();
 
       }
@@ -3978,17 +4039,19 @@ window.addEventListener(
 function applyConfig() {
 
   const background =
-    CONFIG.Background_URL || '';
+    CONFIG.Background_URL ||
+    '';
+
 
   const music =
-    CONFIG.Musik_URL || '';
+    CONFIG.Musik_URL ||
+    '';
+
 
   const maps =
     CONFIG.Maps_URL ||
     'https://maps.app.goo.gl/4SuRk3SbiuQot39e7';
 
-
-  /* BACKGROUND */
 
   if (background) {
 
@@ -4002,34 +4065,31 @@ function applyConfig() {
   }
 
 
-  /* MUSIC */
-
   if (music) {
 
     document
       .getElementById(
         'weddingMusic'
       )
-      .src = music;
+      .src =
+      music;
 
   }
 
-
-  /* MAPS BUTTON */
 
   document
     .getElementById(
       'mapsButton'
     )
-    .href = maps;
+    .href =
+    maps;
 
-
-  /* GOOGLE MAP */
 
   const mapQuery =
     encodeURIComponent(
       'SDN 1 Cibeuti, Jl. Raya Cibeuti, Kawalu, Tasikmalaya'
     );
+
 
   document
     .getElementById(
@@ -4050,19 +4110,25 @@ function applyConfig() {
 function openInvitation() {
 
   document
-    .getElementById('cover')
+    .getElementById(
+      'cover'
+    )
     .classList
     .add('hidden');
+
 
   document.body
     .classList
     .remove('locked');
 
+
   setTimeout(
     function() {
 
       document
-        .getElementById('content')
+        .getElementById(
+          'content'
+        )
         .classList
         .add('show');
 
@@ -4070,14 +4136,20 @@ function openInvitation() {
     300
   );
 
+
   document
-    .getElementById('musicButton')
-    .style.display = 'flex';
+    .getElementById(
+      'musicButton'
+    )
+    .style.display =
+    'flex';
+
 
   const music =
     document.getElementById(
       'weddingMusic'
     );
+
 
   if (music.src) {
 
@@ -4085,10 +4157,14 @@ function openInvitation() {
       .then(
         function() {
 
-          musicPlaying = true;
+          musicPlaying =
+            true;
+
 
           document
-            .getElementById('musicButton')
+            .getElementById(
+              'musicButton'
+            )
             .classList
             .add('playing');
 
@@ -4121,10 +4197,12 @@ function toggleMusic() {
       'weddingMusic'
     );
 
+
   const button =
     document.getElementById(
       'musicButton'
     );
+
 
   if (!music.src) {
 
@@ -4136,21 +4214,30 @@ function toggleMusic() {
 
   }
 
+
   if (music.paused) {
 
     music.play();
 
-    musicPlaying = true;
+    musicPlaying =
+      true;
 
-    button.classList.add('playing');
+    button
+      .classList
+      .add('playing');
 
-  } else {
+  }
+
+  else {
 
     music.pause();
 
-    musicPlaying = false;
+    musicPlaying =
+      false;
 
-    button.classList.remove('playing');
+    button
+      .classList
+      .remove('playing');
 
   }
 
@@ -4172,8 +4259,11 @@ function updateCountdown() {
   const now =
     new Date().getTime();
 
+
   const distance =
-    weddingDate - now;
+    weddingDate -
+    now;
+
 
   if (distance <= 0) {
 
@@ -4187,7 +4277,8 @@ function updateCountdown() {
 
         document
           .getElementById(id)
-          .innerText = '0';
+          .innerText =
+          '0';
 
       }
     );
@@ -4196,11 +4287,13 @@ function updateCountdown() {
 
   }
 
+
   const days =
     Math.floor(
       distance /
       (1000 * 60 * 60 * 24)
     );
+
 
   const hours =
     Math.floor(
@@ -4211,6 +4304,7 @@ function updateCountdown() {
       (1000 * 60 * 60)
     );
 
+
   const minutes =
     Math.floor(
       (
@@ -4219,6 +4313,7 @@ function updateCountdown() {
       ) /
       (1000 * 60)
     );
+
 
   const seconds =
     Math.floor(
@@ -4229,26 +4324,35 @@ function updateCountdown() {
       1000
     );
 
+
   document
     .getElementById('days')
-    .innerText = days;
+    .innerText =
+    days;
+
 
   document
     .getElementById('hours')
-    .innerText = hours;
+    .innerText =
+    hours;
+
 
   document
     .getElementById('minutes')
-    .innerText = minutes;
+    .innerText =
+    minutes;
+
 
   document
     .getElementById('seconds')
-    .innerText = seconds;
+    .innerText =
+    seconds;
 
 }
 
 
 updateCountdown();
+
 
 setInterval(
   updateCountdown,
@@ -4267,44 +4371,60 @@ function createPetal() {
       'div'
     );
 
+
   petal.className =
     'petal';
+
 
   const size =
     Math.random() * 8 + 7;
 
+
   petal.style.width =
     size + 'px';
+
 
   petal.style.height =
     size * .65 + 'px';
 
+
   petal.style.left =
-    Math.random() * 100 + 'vw';
+    Math.random() * 100 +
+    'vw';
+
 
   petal.style.setProperty(
     '--x',
     (
-      Math.random() * 250 - 125
-    ) + 'px'
+      Math.random() * 250 -
+      125
+    ) +
+    'px'
   );
+
 
   const duration =
     Math.random() * 7 + 7;
 
+
   petal.style.animationDuration =
     duration + 's';
 
+
   petal.style.opacity =
     Math.random() * .5 + .35;
+
 
   document.body.appendChild(
     petal
   );
 
+
   setTimeout(
     function() {
+
       petal.remove();
+
     },
     duration * 1000
   );
@@ -4327,6 +4447,7 @@ function createPetals() {
 
   }
 
+
   setInterval(
     createPetal,
     700
@@ -4339,7 +4460,8 @@ function createPetals() {
    SCROLL REVEAL
 ===================================================== */
 
-let lastScrollY = 0;
+let lastScrollY =
+  0;
 
 
 function initReveal() {
@@ -4348,6 +4470,7 @@ function initReveal() {
     document.querySelectorAll(
       '.reveal'
     );
+
 
   const observer =
     new IntersectionObserver(
@@ -4364,9 +4487,11 @@ function initReveal() {
                 .classList
                 .add('visible');
 
+
               entry.target
                 .classList
                 .remove('scroll-up');
+
 
               entry.target
                 .classList
@@ -4379,17 +4504,25 @@ function initReveal() {
 
       },
       {
-        threshold: 0.10,
+        threshold:
+          0.10,
+
         rootMargin:
           '0px 0px -50px 0px'
       }
     );
 
+
   elements.forEach(
     function(element) {
-      observer.observe(element);
+
+      observer.observe(
+        element
+      );
+
     }
   );
+
 
   window.addEventListener(
     'scroll',
@@ -4398,16 +4531,20 @@ function initReveal() {
       const currentScrollY =
         window.scrollY;
 
+
       const direction =
-        currentScrollY > lastScrollY
+        currentScrollY >
+        lastScrollY
           ? 'down'
           : 'up';
+
 
       elements.forEach(
         function(element) {
 
           const rect =
             element.getBoundingClientRect();
+
 
           if (
             rect.bottom < -30 ||
@@ -4419,27 +4556,40 @@ function initReveal() {
               .classList
               .remove('visible');
 
+
             if (
               direction === 'down'
             ) {
 
               element
                 .classList
-                .add('scroll-down');
+                .add(
+                  'scroll-down'
+                );
+
 
               element
                 .classList
-                .remove('scroll-up');
+                .remove(
+                  'scroll-up'
+                );
 
-            } else {
+            }
+
+            else {
 
               element
                 .classList
-                .add('scroll-up');
+                .add(
+                  'scroll-up'
+                );
+
 
               element
                 .classList
-                .remove('scroll-down');
+                .remove(
+                  'scroll-down'
+                );
 
             }
 
@@ -4448,6 +4598,7 @@ function initReveal() {
         }
       );
 
+
       lastScrollY =
         currentScrollY <= 0
           ? 0
@@ -4455,7 +4606,8 @@ function initReveal() {
 
     },
     {
-      passive: true
+      passive:
+        true
     }
   );
 
@@ -4470,15 +4622,18 @@ function submitRSVP(event) {
 
   event.preventDefault();
 
+
   const button =
     document.getElementById(
       'submitButton'
     );
 
+
   const status =
     document.getElementById(
       'status'
     );
+
 
   const data = {
 
@@ -4487,15 +4642,18 @@ function submitRSVP(event) {
         'nama'
       ).value,
 
+
     kehadiran:
       document.getElementById(
         'kehadiran'
       ).value,
 
+
     jumlah:
       document.getElementById(
         'jumlah'
       ).value,
+
 
     ucapan:
       document.getElementById(
@@ -4504,9 +4662,18 @@ function submitRSVP(event) {
 
   };
 
-  button.disabled = true;
-  button.innerText = 'MENGIRIM...';
-  status.innerText = 'Mohon tunggu...';
+
+  button.disabled =
+    true;
+
+
+  button.innerText =
+    'MENGIRIM...';
+
+
+  status.innerText =
+    'Mohon tunggu...';
+
 
   apiRequest(
     'saveRSVP',
@@ -4521,8 +4688,10 @@ function submitRSVP(event) {
         status.style.color =
           '#d8b56a';
 
+
         status.innerText =
           response.message;
+
 
         document
           .getElementById(
@@ -4530,16 +4699,24 @@ function submitRSVP(event) {
           )
           .reset();
 
-        button.disabled = false;
+
+        button.disabled =
+          false;
+
+
         button.innerText =
           'KIRIM KONFIRMASI';
 
+
         loadWishes();
 
-      } else {
+      }
+
+      else {
 
         status.style.color =
           '#e6a5a5';
+
 
         status.innerText =
           (
@@ -4548,7 +4725,11 @@ function submitRSVP(event) {
           ) ||
           'Terjadi kesalahan. Silakan coba kembali.';
 
-        button.disabled = false;
+
+        button.disabled =
+          false;
+
+
         button.innerText =
           'KIRIM KONFIRMASI';
 
@@ -4576,12 +4757,14 @@ function loadWishes() {
           'wishList'
         );
 
+
       if (
         !response ||
         response.success === false
       ) {
 
         list.innerHTML = `
+
           <div
             style="
               text-align:center;
@@ -4591,20 +4774,26 @@ function loadWishes() {
               line-height:1.6;
             "
           >
+
             Gagal memuat ucapan.
+
           </div>
+
         `;
 
         return;
 
       }
+
 
       const data =
         response.data || [];
 
+
       if (data.length === 0) {
 
         list.innerHTML = `
+
           <div
             style="
               text-align:center;
@@ -4614,19 +4803,27 @@ function loadWishes() {
               line-height:1.6;
             "
           >
+
             Belum ada ucapan.
+
             <br>
+
             Jadilah yang pertama
             memberikan doa terbaik
             untuk Anwar & Mila.
+
           </div>
+
         `;
 
         return;
 
       }
 
-      let html = '';
+
+      let html =
+        '';
+
 
       data.forEach(
         function(item) {
@@ -4636,36 +4833,47 @@ function loadWishes() {
               item.nama || ''
             );
 
+
           const status =
             escapeHtml(
               item.kehadiran || ''
             );
+
 
           const ucapan =
             escapeHtml(
               item.ucapan || ''
             );
 
+
           html += `
+
             <div class="wish">
+
               <div class="wish-name">
                 ${nama}
               </div>
+
 
               <div class="wish-status">
                 ${status}
               </div>
 
+
               <div class="wish-text">
                 ${ucapan}
               </div>
+
             </div>
+
           `;
 
         }
       );
 
-      list.innerHTML = html;
+
+      list.innerHTML =
+        html;
 
     }
   );
@@ -4684,8 +4892,10 @@ function escapeHtml(text) {
       'div'
     );
 
+
   div.textContent =
     text;
+
 
   return div.innerHTML;
 
@@ -4693,7 +4903,7 @@ function escapeHtml(text) {
 
 </script>
 
-
 </body>
 
 </html>
+```
