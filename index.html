@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 
@@ -12,6 +11,7 @@
 >
 
 <title>Anwar & Mila</title>
+
 
 <!-- =====================================================
      WHATSAPP / SOCIAL MEDIA PREVIEW
@@ -102,6 +102,7 @@
   content="https://milasar1.github.io/anwar-mila/Preview.jpg"
 >
 
+
 <link
   rel="preconnect"
   href="https://fonts.googleapis.com"
@@ -111,6 +112,7 @@
   href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
   rel="stylesheet"
 >
+
 
 <style>
 
@@ -549,24 +551,43 @@ body.locked {
   line-height:
     .95;
 
-  /* GLOW */
+  /*
+     GLOW MENGALIR KIRI -> KANAN
+  */
 
-  text-shadow:
+  background:
+    linear-gradient(
+      110deg,
+      var(--cream) 0%,
+      var(--cream) 35%,
+      var(--gold-light) 43%,
+      #ffffff 50%,
+      var(--gold-light) 57%,
+      var(--cream) 65%,
+      var(--cream) 100%
+    );
 
-    0 0 5px
-    rgba(242,213,139,.35),
+  background-size:
+    250% 100%;
 
-    0 0 12px
-    rgba(216,181,106,.30),
+  -webkit-background-clip:
+    text;
 
-    0 0 25px
-    rgba(216,181,106,.18);
+  background-clip:
+    text;
+
+  -webkit-text-fill-color:
+    transparent;
 
   animation:
-    coverGlow 3.2s ease-in-out infinite;
+    flowingGlow 4.5s linear infinite;
 
 }
 
+
+/* =====================================================
+   COVER AMPERSAND
+===================================================== */
 
 .cover-name span {
 
@@ -576,75 +597,66 @@ body.locked {
   font-size:
     42px;
 
-  color:
-    var(--gold);
-
   margin:
     10px 0;
 
-  text-shadow:
+  background:
+    linear-gradient(
+      110deg,
+      var(--gold) 0%,
+      var(--gold) 35%,
+      var(--gold-light) 43%,
+      #ffffff 50%,
+      var(--gold-light) 57%,
+      var(--gold) 65%,
+      var(--gold) 100%
+    );
 
-    0 0 5px
-    rgba(242,213,139,.40),
+  background-size:
+    250% 100%;
 
-    0 0 14px
-    rgba(216,181,106,.30);
+  -webkit-background-clip:
+    text;
+
+  background-clip:
+    text;
+
+  -webkit-text-fill-color:
+    transparent;
+
+  animation:
+    flowingGlow 4.5s linear infinite;
 
 }
 
 
-@keyframes coverGlow {
+/* =====================================================
+   ANIMASI GLOW
+   CAHAYA BERGERAK DARI KIRI KE KANAN
+===================================================== */
+
+@keyframes flowingGlow {
 
   0% {
 
-    text-shadow:
-
-      0 0 4px
-      rgba(242,213,139,.25),
-
-      0 0 10px
-      rgba(216,181,106,.20),
-
-      0 0 18px
-      rgba(216,181,106,.10);
-
-  }
-
-  50% {
-
-    text-shadow:
-
-      0 0 7px
-      rgba(255,239,190,.85),
-
-      0 0 18px
-      rgba(242,213,139,.65),
-
-      0 0 35px
-      rgba(216,181,106,.40),
-
-      0 0 55px
-      rgba(216,181,106,.18);
+    background-position:
+      150% 0;
 
   }
 
   100% {
 
-    text-shadow:
-
-      0 0 4px
-      rgba(242,213,139,.25),
-
-      0 0 10px
-      rgba(216,181,106,.20),
-
-      0 0 18px
-      rgba(216,181,106,.10);
+    background-position:
+      -150% 0;
 
   }
 
 }
 
+
+/* =====================================================
+   COVER DATE
+===================================================== */
 
 .cover-date {
 
@@ -1391,6 +1403,11 @@ section {
 }
 
 
+/* =====================================================
+   NAMA KEDUA MEMPELAI
+   GLOW MENGALIR KIRI -> KANAN
+===================================================== */
+
 .couple-name {
 
   font-family:
@@ -1410,72 +1427,40 @@ section {
   line-height:
     1.05;
 
-  color:
-    var(--gold-light);
+  /*
+     GRADIENT CAHAYA
+  */
 
-  text-shadow:
+  background:
+    linear-gradient(
+      110deg,
+      var(--gold-light) 0%,
+      var(--gold-light) 35%,
+      #ffeeb0 43%,
+      #ffffff 50%,
+      #ffeeb0 57%,
+      var(--gold-light) 65%,
+      var(--gold-light) 100%
+    );
 
-    0 0 4px
-    rgba(242,213,139,.25),
+  background-size:
+    250% 100%;
 
-    0 0 10px
-    rgba(216,181,106,.20);
+  -webkit-background-clip:
+    text;
+
+  background-clip:
+    text;
+
+  -webkit-text-fill-color:
+    transparent;
 
   animation:
-    coupleGlow 3.8s ease-in-out infinite;
+    flowingGlow 4.5s linear infinite;
 
-}
-
-
-@keyframes coupleGlow {
-
-  0% {
-
-    text-shadow:
-
-      0 0 4px
-      rgba(242,213,139,.20),
-
-      0 0 10px
-      rgba(216,181,106,.15),
-
-      0 0 18px
-      rgba(216,181,106,.08);
-
-  }
-
-  50% {
-
-    text-shadow:
-
-      0 0 7px
-      rgba(255,239,190,.80),
-
-      0 0 16px
-      rgba(242,213,139,.60),
-
-      0 0 30px
-      rgba(216,181,106,.35),
-
-      0 0 45px
-      rgba(216,181,106,.15);
-
-  }
-
-  100% {
-
-    text-shadow:
-
-      0 0 4px
-      rgba(242,213,139,.20),
-
-      0 0 10px
-      rgba(216,181,106,.15),
-
-      0 0 18px
-      rgba(216,181,106,.08);
-
-  }
+  text-shadow:
+    0 2px 12px
+    rgba(0,0,0,.35);
 
 }
 
@@ -1698,6 +1683,10 @@ section {
 
 }
 
+
+/* =====================================================
+   EVENT DATE
+===================================================== */
 
 .event-date {
 
@@ -2853,6 +2842,8 @@ textarea {
   }
 
 
+  /* EVENT */
+
   .event-wrapper {
 
     padding:
@@ -2951,6 +2942,8 @@ textarea {
   }
 
 
+  /* LOCATION */
+
   .location-block {
 
     padding:
@@ -2998,6 +2991,8 @@ textarea {
 
   }
 
+
+  /* GUEST */
 
   .guest-box {
 
@@ -3128,6 +3123,24 @@ textarea {
 
 }
 
+
+/* =====================================================
+   REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .cover-name,
+  .cover-name span,
+  .couple-name {
+
+    animation:
+      none;
+
+  }
+
+}
+
 </style>
 
 </head>
@@ -3135,6 +3148,10 @@ textarea {
 
 <body class="locked">
 
+
+<!-- =====================================================
+     BACKGROUND
+===================================================== -->
 
 <div id="mainBackground"></div>
 
@@ -3148,6 +3165,7 @@ textarea {
 <div id="cover">
 
   <div class="cover-card">
+
 
     <div class="cover-small">
       THE WEDDING OF
@@ -3171,6 +3189,10 @@ textarea {
       06 · 09 · 2026
     </div>
 
+
+    <!-- =================================================
+         NAMA TAMU
+    ================================================== -->
 
     <div class="guest-box">
 
@@ -3205,6 +3227,7 @@ textarea {
     >
       BUKA UNDANGAN
     </button>
+
 
   </div>
 
@@ -3241,6 +3264,10 @@ textarea {
 <div class="main-card">
 
 
+<!-- =====================================================
+     WEDDING
+===================================================== -->
+
 <div class="wedding-block reveal">
 
   <div class="ornament">
@@ -3271,7 +3298,12 @@ textarea {
 <div class="inner-divider"></div>
 
 
+<!-- =====================================================
+     AYAT
+===================================================== -->
+
 <div class="verse-block reveal">
+
 
   <div class="bismillah">
     بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
@@ -3310,7 +3342,12 @@ textarea {
 <div class="inner-divider"></div>
 
 
+<!-- =====================================================
+     PEMBUKAAN
+===================================================== -->
+
 <div class="intro reveal">
+
 
   <div class="greeting">
 
@@ -3328,7 +3365,12 @@ textarea {
 </div>
 
 
+<!-- =====================================================
+     MEMPELAI
+===================================================== -->
+
 <div class="couple-area reveal">
+
 
   <div class="couple-name">
     Asep Saeful Anwar
@@ -3374,7 +3416,12 @@ textarea {
 <div class="inner-divider"></div>
 
 
+<!-- =====================================================
+     COUNTDOWN
+===================================================== -->
+
 <div class="reveal">
+
 
   <div class="countdown-title">
     MENGHITUNG HARI
@@ -3382,6 +3429,7 @@ textarea {
 
 
   <div class="countdown">
+
 
     <div class="count-box">
 
@@ -3446,12 +3494,18 @@ textarea {
 
     </div>
 
+
   </div>
 
 </div>
 
 
+<!-- =====================================================
+     EVENT
+===================================================== -->
+
 <div class="event-wrapper reveal">
+
 
   <div class="ornament">
     ✦ ❈ ✦
@@ -3459,6 +3513,7 @@ textarea {
 
 
   <div class="event-date">
+
 
     <div class="event-date-label">
       DISELENGGARAKAN PADA:
@@ -3484,10 +3539,12 @@ textarea {
       2026
     </div>
 
+
   </div>
 
 
   <div class="event-row">
+
 
     <div class="event-box">
 
@@ -3516,12 +3573,18 @@ textarea {
 
     </div>
 
+
   </div>
 
 </div>
 
 
+<!-- =====================================================
+     LOKASI
+===================================================== -->
+
 <div class="location-block reveal">
+
 
   <div class="ornament">
     ✦ ❈ ✦
@@ -3566,13 +3629,19 @@ textarea {
     BUKA GOOGLE MAPS
   </a>
 
+
 </div>
 
 
 <div class="inner-divider"></div>
 
 
+<!-- =====================================================
+     PENUTUP
+===================================================== -->
+
 <div class="closing reveal">
+
 
   Merupakan suatu kehormatan dan kebahagiaan
   bagi kami apabila Bapak/Ibu/Saudara/i
@@ -3587,13 +3656,19 @@ textarea {
 
   </div>
 
+
 </div>
 
 
 <div class="inner-divider"></div>
 
 
+<!-- =====================================================
+     RSVP
+===================================================== -->
+
 <div class="reveal">
+
 
   <div class="rsvp-title">
     KONFIRMASI KEHADIRAN
@@ -3604,6 +3679,7 @@ textarea {
     id="rsvpForm"
     onsubmit="submitRSVP(event)"
   >
+
 
     <div class="form-group">
 
@@ -3666,17 +3742,21 @@ textarea {
           1 Orang
         </option>
 
+
         <option value="2">
           2 Orang
         </option>
+
 
         <option value="3">
           3 Orang
         </option>
 
+
         <option value="4">
           4 Orang
         </option>
+
 
         <option value="5">
           5 Orang
@@ -3716,12 +3796,18 @@ textarea {
       class="status"
     ></div>
 
+
   </form>
 
 </div>
 
 
+<!-- =====================================================
+     UCAPAN
+===================================================== -->
+
 <div class="wishes reveal">
+
 
   <div class="rsvp-title">
     UCAPAN & DOA
@@ -3732,13 +3818,19 @@ textarea {
     Memuat ucapan...
   </div>
 
+
 </div>
 
 
 <div class="final-divider"></div>
 
 
+<!-- =====================================================
+     FINAL
+===================================================== -->
+
 <div class="reveal">
+
 
   <div class="ornament">
     ✦ ❈ ✦
@@ -3782,6 +3874,7 @@ textarea {
     ✦ ❈ ✦
 
   </div>
+
 
 </div>
 
@@ -3861,18 +3954,19 @@ function apiRequest(action, params, callback) {
 
   if (params) {
 
-    Object.keys(params).forEach(
-      function(key) {
+    Object.keys(params)
+      .forEach(
+        function(key) {
 
-        query.set(
-          key,
-          params[key] == null
-            ? ''
-            : params[key]
-        );
+          query.set(
+            key,
+            params[key] == null
+              ? ''
+              : params[key]
+          );
 
-      }
-    );
+        }
+      );
 
   }
 
@@ -3893,13 +3987,17 @@ function apiRequest(action, params, callback) {
 
       try {
 
-        callback(response);
+        callback(
+          response
+        );
 
       }
 
       finally {
 
-        delete window[callbackName];
+        delete window[
+          callbackName
+        ];
 
         script.remove();
 
@@ -3913,7 +4011,9 @@ function apiRequest(action, params, callback) {
 
       if (finished) return;
 
-      delete window[callbackName];
+      delete window[
+        callbackName
+      ];
 
       script.remove();
 
@@ -3944,7 +4044,7 @@ function apiRequest(action, params, callback) {
 
 
 /* =====================================================
-   NAMA TAMU
+   NAMA TAMU DARI URL
 ===================================================== */
 
 function loadGuestName() {
@@ -3956,7 +4056,8 @@ function loadGuestName() {
 
 
   let guest =
-    params.get('to') || '';
+    params.get('to') ||
+    '';
 
 
   guest =
@@ -3969,7 +4070,9 @@ function loadGuestName() {
     );
 
 
-  if (!guestName) return;
+  if (!guestName) {
+    return;
+  }
 
 
   guestName.innerText =
@@ -4000,12 +4103,12 @@ window.addEventListener(
           response.success === false
         ) {
 
-          console.error(response);
+          console.error(
+            response
+          );
 
           createPetals();
-
           loadWishes();
-
           initReveal();
 
           return;
@@ -4014,7 +4117,8 @@ window.addEventListener(
 
 
         CONFIG =
-          response.data || {};
+          response.data ||
+          {};
 
 
         applyConfig();
@@ -4053,6 +4157,8 @@ function applyConfig() {
     'https://maps.app.goo.gl/4SuRk3SbiuQot39e7';
 
 
+  /* BACKGROUND */
+
   if (background) {
 
     document.documentElement
@@ -4064,6 +4170,8 @@ function applyConfig() {
 
   }
 
+
+  /* MUSIC */
 
   if (music) {
 
@@ -4077,6 +4185,8 @@ function applyConfig() {
   }
 
 
+  /* MAPS BUTTON */
+
   document
     .getElementById(
       'mapsButton'
@@ -4084,6 +4194,8 @@ function applyConfig() {
     .href =
     maps;
 
+
+  /* GOOGLE MAP */
 
   const mapQuery =
     encodeURIComponent(
@@ -4114,12 +4226,16 @@ function openInvitation() {
       'cover'
     )
     .classList
-    .add('hidden');
+    .add(
+      'hidden'
+    );
 
 
   document.body
     .classList
-    .remove('locked');
+    .remove(
+      'locked'
+    );
 
 
   setTimeout(
@@ -4130,7 +4246,9 @@ function openInvitation() {
           'content'
         )
         .classList
-        .add('show');
+        .add(
+          'show'
+        );
 
     },
     300
@@ -4166,7 +4284,9 @@ function openInvitation() {
               'musicButton'
             )
             .classList
-            .add('playing');
+            .add(
+              'playing'
+            );
 
         }
       )
@@ -4224,7 +4344,9 @@ function toggleMusic() {
 
     button
       .classList
-      .add('playing');
+      .add(
+        'playing'
+      );
 
   }
 
@@ -4237,7 +4359,9 @@ function toggleMusic() {
 
     button
       .classList
-      .remove('playing');
+      .remove(
+        'playing'
+      );
 
   }
 
@@ -4272,11 +4396,14 @@ function updateCountdown() {
       'hours',
       'minutes',
       'seconds'
-    ].forEach(
+    ]
+    .forEach(
       function(id) {
 
         document
-          .getElementById(id)
+          .getElementById(
+            id
+          )
           .innerText =
           '0';
 
@@ -4291,7 +4418,12 @@ function updateCountdown() {
   const days =
     Math.floor(
       distance /
-      (1000 * 60 * 60 * 24)
+      (
+        1000 *
+        60 *
+        60 *
+        24
+      )
     );
 
 
@@ -4299,9 +4431,18 @@ function updateCountdown() {
     Math.floor(
       (
         distance %
-        (1000 * 60 * 60 * 24)
+        (
+          1000 *
+          60 *
+          60 *
+          24
+        )
       ) /
-      (1000 * 60 * 60)
+      (
+        1000 *
+        60 *
+        60
+      )
     );
 
 
@@ -4309,9 +4450,16 @@ function updateCountdown() {
     Math.floor(
       (
         distance %
-        (1000 * 60 * 60)
+        (
+          1000 *
+          60 *
+          60
+        )
       ) /
-      (1000 * 60)
+      (
+        1000 *
+        60
+      )
     );
 
 
@@ -4319,32 +4467,43 @@ function updateCountdown() {
     Math.floor(
       (
         distance %
-        (1000 * 60)
+        (
+          1000 *
+          60
+        )
       ) /
       1000
     );
 
 
   document
-    .getElementById('days')
+    .getElementById(
+      'days'
+    )
     .innerText =
     days;
 
 
   document
-    .getElementById('hours')
+    .getElementById(
+      'hours'
+    )
     .innerText =
     hours;
 
 
   document
-    .getElementById('minutes')
+    .getElementById(
+      'minutes'
+    )
     .innerText =
     minutes;
 
 
   document
-    .getElementById('seconds')
+    .getElementById(
+      'seconds'
+    )
     .innerText =
     seconds;
 
@@ -4377,26 +4536,33 @@ function createPetal() {
 
 
   const size =
-    Math.random() * 8 + 7;
+    Math.random() *
+    8 +
+    7;
 
 
   petal.style.width =
-    size + 'px';
+    size +
+    'px';
 
 
   petal.style.height =
-    size * .65 + 'px';
+    size *
+    .65 +
+    'px';
 
 
   petal.style.left =
-    Math.random() * 100 +
+    Math.random() *
+    100 +
     'vw';
 
 
   petal.style.setProperty(
     '--x',
     (
-      Math.random() * 250 -
+      Math.random() *
+      250 -
       125
     ) +
     'px'
@@ -4404,15 +4570,20 @@ function createPetal() {
 
 
   const duration =
-    Math.random() * 7 + 7;
+    Math.random() *
+    7 +
+    7;
 
 
   petal.style.animationDuration =
-    duration + 's';
+    duration +
+    's';
 
 
   petal.style.opacity =
-    Math.random() * .5 + .35;
+    Math.random() *
+    .5 +
+    .35;
 
 
   document.body.appendChild(
@@ -4426,7 +4597,8 @@ function createPetal() {
       petal.remove();
 
     },
-    duration * 1000
+    duration *
+    1000
   );
 
 }
@@ -4442,7 +4614,8 @@ function createPetals() {
 
     setTimeout(
       createPetal,
-      i * 350
+      i *
+      350
     );
 
   }
@@ -4485,17 +4658,23 @@ function initReveal() {
 
               entry.target
                 .classList
-                .add('visible');
+                .add(
+                  'visible'
+                );
 
 
               entry.target
                 .classList
-                .remove('scroll-up');
+                .remove(
+                  'scroll-up'
+                );
 
 
               entry.target
                 .classList
-                .remove('scroll-down');
+                .remove(
+                  'scroll-down'
+                );
 
             }
 
@@ -4543,22 +4722,28 @@ function initReveal() {
         function(element) {
 
           const rect =
-            element.getBoundingClientRect();
+            element
+              .getBoundingClientRect();
 
 
           if (
-            rect.bottom < -30 ||
+            rect.bottom <
+              -30 ||
             rect.top >
-              window.innerHeight + 30
+              window.innerHeight +
+              30
           ) {
 
             element
               .classList
-              .remove('visible');
+              .remove(
+                'visible'
+              );
 
 
             if (
-              direction === 'down'
+              direction ===
+              'down'
             ) {
 
               element
@@ -4781,16 +4966,20 @@ function loadWishes() {
 
         `;
 
+
         return;
 
       }
 
 
       const data =
-        response.data || [];
+        response.data ||
+        [];
 
 
-      if (data.length === 0) {
+      if (
+        data.length === 0
+      ) {
 
         list.innerHTML = `
 
@@ -4816,6 +5005,7 @@ function loadWishes() {
 
         `;
 
+
         return;
 
       }
@@ -4830,19 +5020,22 @@ function loadWishes() {
 
           const nama =
             escapeHtml(
-              item.nama || ''
+              item.nama ||
+              ''
             );
 
 
           const status =
             escapeHtml(
-              item.kehadiran || ''
+              item.kehadiran ||
+              ''
             );
 
 
           const ucapan =
             escapeHtml(
-              item.ucapan || ''
+              item.ucapan ||
+              ''
             );
 
 
@@ -4903,7 +5096,7 @@ function escapeHtml(text) {
 
 </script>
 
+
 </body>
 
 </html>
-```
