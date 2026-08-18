@@ -551,10 +551,6 @@ body.locked {
   line-height:
     .95;
 
-  /*
-     GLOW MENGALIR KIRI -> KANAN
-  */
-
   background:
     linear-gradient(
       110deg,
@@ -1427,10 +1423,6 @@ section {
   line-height:
     1.05;
 
-  /*
-     GRADIENT CAHAYA
-  */
-
   background:
     linear-gradient(
       110deg,
@@ -1734,6 +1726,10 @@ section {
 }
 
 
+/* =====================================================
+   LABEL TANGGAL
+===================================================== */
+
 .event-date-label {
 
   font-family:
@@ -1755,6 +1751,11 @@ section {
 }
 
 
+/* =====================================================
+   MINGGU
+   GLOW TERANG KIRI -> KANAN
+===================================================== */
+
 .event-day {
 
   font-family:
@@ -1767,17 +1768,61 @@ section {
   letter-spacing:
     5px;
 
-  color:
-    var(--gold-light);
-
   font-weight:
     500;
 
   margin-bottom:
     8px;
 
+  position:
+    relative;
+
+  display:
+    inline-block;
+
+  color:
+    var(--gold-light);
+
+  background:
+    linear-gradient(
+      110deg,
+      var(--gold-light) 0%,
+      var(--gold-light) 35%,
+      #ffeeb0 43%,
+      #ffffff 50%,
+      #ffeeb0 57%,
+      var(--gold-light) 65%,
+      var(--gold-light) 100%
+    );
+
+  background-size:
+    250% 100%;
+
+  -webkit-background-clip:
+    text;
+
+  background-clip:
+    text;
+
+  -webkit-text-fill-color:
+    transparent;
+
+  animation:
+    eventDateGlow 4.5s linear infinite;
+
+  filter:
+    drop-shadow(
+      0 0 5px
+      rgba(242,213,139,.28)
+    );
+
 }
 
+
+/* =====================================================
+   ANGKA 06
+   GLOW TERANG KIRI -> KANAN
+===================================================== */
 
 .event-number {
 
@@ -1795,18 +1840,58 @@ section {
   line-height:
     .9;
 
-  color:
-    var(--gold-light);
-
   margin:
     5px 0 2px;
 
-  text-shadow:
-    0 4px 20px
-    rgba(0,0,0,.3);
+  position:
+    relative;
+
+  display:
+    inline-block;
+
+  color:
+    var(--gold-light);
+
+  background:
+    linear-gradient(
+      110deg,
+      var(--gold-light) 0%,
+      var(--gold-light) 35%,
+      #ffeeb0 43%,
+      #ffffff 50%,
+      #ffeeb0 57%,
+      var(--gold-light) 65%,
+      var(--gold-light) 100%
+    );
+
+  background-size:
+    250% 100%;
+
+  -webkit-background-clip:
+    text;
+
+  background-clip:
+    text;
+
+  -webkit-text-fill-color:
+    transparent;
+
+  animation:
+    eventDateGlow 4.5s linear infinite;
+
+  filter:
+    drop-shadow(
+      0 0 8px
+      rgba(242,213,139,.35)
+    );
 
 }
 
+
+/* =====================================================
+   SEPTEMBER
+   GLOW TERANG KIRI -> KANAN
+===================================================== */
 
 .event-month {
 
@@ -1824,14 +1909,58 @@ section {
   letter-spacing:
     7px;
 
-  color:
-    #f1dfb6;
-
   font-weight:
     600;
 
+  position:
+    relative;
+
+  display:
+    inline-block;
+
+  color:
+    #f1dfb6;
+
+  background:
+    linear-gradient(
+      110deg,
+      #f1dfb6 0%,
+      #f1dfb6 35%,
+      #ffeeb0 43%,
+      #ffffff 50%,
+      #ffeeb0 57%,
+      #f1dfb6 65%,
+      #f1dfb6 100%
+    );
+
+  background-size:
+    250% 100%;
+
+  -webkit-background-clip:
+    text;
+
+  background-clip:
+    text;
+
+  -webkit-text-fill-color:
+    transparent;
+
+  animation:
+    eventDateGlow 4.5s linear infinite;
+
+  filter:
+    drop-shadow(
+      0 0 6px
+      rgba(242,213,139,.30)
+    );
+
 }
 
+
+/* =====================================================
+   2026
+   GLOW TERANG KIRI -> KANAN
+===================================================== */
 
 .event-year {
 
@@ -1848,8 +1977,71 @@ section {
   letter-spacing:
     5px;
 
+  position:
+    relative;
+
+  display:
+    inline-block;
+
   color:
     var(--gold);
+
+  background:
+    linear-gradient(
+      110deg,
+      var(--gold) 0%,
+      var(--gold) 35%,
+      var(--gold-light) 43%,
+      #ffffff 50%,
+      var(--gold-light) 57%,
+      var(--gold) 65%,
+      var(--gold) 100%
+    );
+
+  background-size:
+    250% 100%;
+
+  -webkit-background-clip:
+    text;
+
+  background-clip:
+    text;
+
+  -webkit-text-fill-color:
+    transparent;
+
+  animation:
+    eventDateGlow 4.5s linear infinite;
+
+  filter:
+    drop-shadow(
+      0 0 5px
+      rgba(216,181,106,.30)
+    );
+
+}
+
+
+/* =====================================================
+   ANIMASI GLOW TANGGAL
+   CAHAYA BERGERAK DARI KIRI KE KANAN
+===================================================== */
+
+@keyframes eventDateGlow {
+
+  0% {
+
+    background-position:
+      150% 0;
+
+  }
+
+  100% {
+
+    background-position:
+      -150% 0;
+
+  }
 
 }
 
@@ -2842,7 +3034,9 @@ textarea {
   }
 
 
-  /* EVENT */
+  /* ===================================================
+     EVENT MOBILE
+  =================================================== */
 
   .event-wrapper {
 
@@ -2942,7 +3136,9 @@ textarea {
   }
 
 
-  /* LOCATION */
+  /* ===================================================
+     LOCATION
+  =================================================== */
 
   .location-block {
 
@@ -2992,7 +3188,9 @@ textarea {
   }
 
 
-  /* GUEST */
+  /* ===================================================
+     GUEST
+  =================================================== */
 
   .guest-box {
 
@@ -3132,7 +3330,11 @@ textarea {
 
   .cover-name,
   .cover-name span,
-  .couple-name {
+  .couple-name,
+  .event-day,
+  .event-number,
+  .event-month,
+  .event-year {
 
     animation:
       none;
