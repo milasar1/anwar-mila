@@ -4177,12 +4177,7 @@ function applyConfig() {
 
   if (music) {
 
-    document
-      .getElementById(
-        'weddingMusic'
-      )
-      .src =
-      music;
+    setWeddingMusic(music);
 
   }
 
@@ -4224,109 +4219,179 @@ function applyConfig() {
 function openInvitation() {
 
   document
-    .getElementById(
-      'cover'
-    )
+    .getElementById('cover')
     .classList
-    .add(
-      'hidden'
-    );
-
+    .add('hidden');
 
   document.body
     .classList
-    .remove(
-      'locked'
-    );
+    .remove('locked');
 
-
-  setTimeout(
-    function() {
-
-      document
-        .getElementById(
-          'content'
-        )
-        .classList
-        .add(
-          'show'
-        );
-
-    },
-    300
-  );
-
+  setTimeout(function() {
+    document
+      .getElementById('content')
+      .classList
+      .add('show');
+  }, 300);
 
   document
-    .getElementById(
-      'musicButton'
-    )
-    .style.display =
-    'flex';
+    .getElementById('musicButton')
+    .style.display = 'flex';
 
+  /*
+   * MUSIK:
+   * Tombol BUKA UNDANGAN merupakan interaksi pengguna.
+   * Kita langsung mencoba memutar musik, lalu menyediakan
+   * beberapa percobaan tambahan bila browser HP belum siap.
+   */
+  tryPlayMusic();
 
-  const music =
-    document.getElementById(
-      'weddingMusic'
-    );
+  setTimeout(function() {
+    tryPlayMusic();
+  }, 500);
 
-
-  if (music.src) {
-
-    music.play()
-      .then(
-        function() {
-
-          musicPlaying =
-            true;
-
-
-          document
-            .getElementById(
-              'musicButton'
-            )
-            .classList
-            .add(
-              'playing'
-            );
-
-        }
-      )
-      .catch(
-        function(error) {
-
-          console.log(
-            'Autoplay musik diblokir browser.',
-            error
-          );
-
-        }
-      );
-
-  }
-
+  setTimeout(function() {
+    tryPlayMusic();
+  }, 1500);
 }
 
 
 /* =====================================================
-   MUSIC
+   MUSIC - MOBILE FRIENDLY
 ===================================================== */
+
+function tryPlayMusic() {
+
+  const music =
+    document.getElementById('weddingMusic');
+
+  const button =
+    document.getElementById('musicButton');
+
+  if (!music) return;
+
+  /*
+   * Config mungkin belum selesai dimuat ketika tombol
+   * BUKA UNDANGAN ditekan. Jika src belum ada, tunggu
+   * sampai applyConfig() selesai.
+   */
+  if (!music.src) return;
+
+  const promise = music.play();
+
+  if (promise !== undefined) {
+
+    promise.then(function() {
+
+      musicPlaying = true;
+
+      if (button) {
+        button.classList.add('playing');
+      }
+
+    }).catch(function(error) {
+
+      /*
+       * Browser HP dapat menolak play() sementara.
+       * Jangan tampilkan alert agar pengalaman undangan
+       * tetap nyaman. Percobaan berikutnya dilakukan
+       * ketika pengguna menyentuh/scroll halaman.
+       */
+      console.log(
+        'Musik belum dapat diputar otomatis.',
+        error
+      );
+
+    });
+
+  } else {
+
+    musicPlaying = true;
+
+    if (button) {
+      button.classList.add('playing');
+    }
+
+  }
+}
+
+
+/*
+ * Jika browser HP menunda autoplay, interaksi pengguna
+ * berikutnya akan digunakan untuk mencoba memutar musik.
+ */
+function enableMusicRecovery() {
+
+  tryPlayMusic();
+
+}
+
+
+/*
+ * Beberapa browser mobile lebih mudah mengizinkan audio
+ * setelah touch/click/scroll pengguna.
+ */
+document.addEventListener(
+  'touchstart',
+  enableMusicRecovery,
+  { passive: true }
+);
+
+document.addEventListener(
+  'click',
+  enableMusicRecovery,
+  { passive: true }
+);
+
+document.addEventListener(
+  'scroll',
+  enableMusicRecovery,
+  { passive: true }
+);
+
+
+/*
+ * Saat URL musik selesai dimasukkan dari Config,
+ * langsung coba putar jika undangan sudah dibuka.
+ */
+function setWeddingMusic(url) {
+
+  const music =
+    document.getElementById('weddingMusic');
+
+  if (!music || !url) return;
+
+  music.src = url;
+  music.load();
+
+  /*
+   * Bila cover sudah dibuka, coba langsung.
+   */
+  const cover =
+    document.getElementById('cover');
+
+  if (
+    cover &&
+    cover.classList.contains('hidden')
+  ) {
+    tryPlayMusic();
+
+    setTimeout(function() {
+      tryPlayMusic();
+    }, 500);
+  }
+}
+
 
 function toggleMusic() {
 
   const music =
-    document.getElementById(
-      'weddingMusic'
-    );
-
+    document.getElementById('weddingMusic');
 
   const button =
-    document.getElementById(
-      'musicButton'
-    );
+    document.getElementById('musicButton');
 
-
-  if (!music.src) {
+  if (!music || !music.src) {
 
     alert(
       'Link musik belum dimasukkan ke Google Sheet.'
@@ -4339,16 +4404,7 @@ function toggleMusic() {
 
   if (music.paused) {
 
-    music.play();
-
-    musicPlaying =
-      true;
-
-    button
-      .classList
-      .add(
-        'playing'
-      );
+    tryPlayMusic();
 
   }
 
@@ -4356,14 +4412,11 @@ function toggleMusic() {
 
     music.pause();
 
-    musicPlaying =
-      false;
+    musicPlaying = false;
 
     button
       .classList
-      .remove(
-        'playing'
-      );
+      .remove('playing');
 
   }
 
